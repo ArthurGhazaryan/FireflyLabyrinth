@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    background: linear-gradient(135deg, #0b2563, #2f427c, #541fd1);
+    background-size: 400% 400%;
+    animation: gradientShift 30s ease infinite;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at center, #000023, #1f1299, #370287);
+    z-index: -1;
+    animation: rotateBg 60s linear infinite;
+    opacity: 0.6;
+    filter: blur(30px);
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50% }
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+canvas {
+    border: 2px solid white;
+    background-color: black;
+}
+
+#nextLevelBtn {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 25px;
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 10;
+}
+
+#nextLevelBtn:hover {
+    background-color: #777;
+    transform: translateX(-50%) scale(1.05);
+}
+
+#coinCounter {
+    position: absolute;
+    top: 0.1px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 8px 20px;
+    border-radius: 12px;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    backdrop-filter: blur(4px);
+    z-index: 10;
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+}
